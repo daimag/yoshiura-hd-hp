@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const NAV = [
+  { href: "/business", label: "事業内容" },
   { href: "/sw", label: "製品情報" },
   { href: "/usagescene", label: "活用シーン" },
   { href: "/work", label: "施工事例" },
