@@ -51,39 +51,6 @@ export default function Home() {
         <div className="hero__scroll">Scroll</div>
       </section>
 
-      {/* ===== クイックリンク ===== */}
-      <div className="quicklinks">
-        <a
-          className="qlink"
-          href="https://www.netis.mlit.go.jp/netis/pubsearch/details?regNo=KK-200056"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>
-            <b>NETIS 登録製品</b>
-            <br />
-            <span>KK-200056-A（外部リンク）</span>
-          </span>
-          <span className="arw">›</span>
-        </a>
-        <Link className="qlink" href="/safety">
-          <span>
-            <b>「安全性試験」を実施</b>
-            <br />
-            <span>詳しく見る</span>
-          </span>
-          <span className="arw">›</span>
-        </Link>
-        <Link className="qlink" href="/safety">
-          <span>
-            <b>福岡大学 共同研究</b>
-            <br />
-            <span>詳しく見る</span>
-          </span>
-          <span className="arw">›</span>
-        </Link>
-      </div>
-
       {/* ===== ① 主要（製品） ===== */}
       <section className="section">
         <div className="container">
