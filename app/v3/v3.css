@@ -166,11 +166,6 @@ html {
   height: 46px;
   width: auto;
 }
-.v3 .head:not(.solid) .logo {
-  background: rgba(255, 255, 255, 0.96);
-  padding: 8px 16px;
-  border-radius: 10px;
-}
 .v3 .nav {
   display: flex;
   align-items: center;

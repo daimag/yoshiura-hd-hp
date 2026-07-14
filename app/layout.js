@@ -28,9 +28,25 @@ const dots = Zen_Dots({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://yoshiura-hd-hp.vercel.app"),
   title: "粉じん・浸食防止剤 ストーンウォール｜株式会社吉浦",
   description:
     "NETIS登録の粉じん・浸食防止剤「ストーンウォール」。水で希釈し散布するだけで地表面を固化・安定化。株式会社吉浦（福岡市西区）。",
+  openGraph: {
+    title: "粉じん・浸食防止剤 ストーンウォール｜株式会社吉浦",
+    description:
+      "NETIS登録（KK-200056-A）。まくだけで粉じん対策・法面保護。株式会社吉浦。",
+    url: "/",
+    siteName: "株式会社吉浦｜ストーンウォール",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "粉じん・浸食防止剤 ストーンウォール｜株式会社吉浦",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({ children }) {

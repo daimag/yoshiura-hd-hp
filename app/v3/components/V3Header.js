@@ -25,7 +25,7 @@ export default function V3Header() {
       <div className="container">
         <a href="#top" className="logo" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/img/logo.png" alt="株式会社吉浦" />
+          <img src={solid || open ? "/img/logo.png" : "/img/logo_white.png"} alt="株式会社吉浦" />
         </a>
         <button className="toggle" aria-label="メニュー" onClick={() => setOpen((v) => !v)}>
           {open ? "✕" : "☰"}

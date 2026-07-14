@@ -32,7 +32,7 @@ export default function Header() {
       <div className="container">
         <Link href="/" className="brand-logo" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/img/logo.png" alt="株式会社吉浦" />
+          <img src={solid ? "/img/logo.png" : "/img/logo_white.png"} alt="株式会社吉浦" />
         </Link>
         <button
           className="nav-toggle"
