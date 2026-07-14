@@ -16,6 +16,7 @@ export default function Footer() {
             </p>
           </div>
           <nav className="fnav">
+            <Link href="/company">会社概要</Link>
             <Link href="/sw">製品情報</Link>
             <Link href="/usagescene">活用シーン</Link>
             <Link href="/work">施工事例</Link>

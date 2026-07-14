@@ -1,10 +1,17 @@
 import Link from "next/link";
 
+const HERO_SLIDES = [
+  "/img/sekou_taiyoukou.jpg",
+  "/img/sekou_nagasaki.jpg",
+  "/img/norimen.jpg",
+  "/img/sekou_watarase.jpg",
+];
+
 const SCENES = [
-  { img: "/img/sekou_itohiki.jpg", t: "粉じん飛散の抑制", d: "造成地・ストックヤード・仮設道路などの粉じん対策に。" },
-  { img: "/img/sekou_nagasaki.jpg", t: "法面・のり面の保護", d: "表層を固化し、降雨時の表面侵食・崩落を抑制します。" },
+  { img: "/img/funjin1.jpg", t: "粉じん飛散の抑制", d: "造成地・ストックヤード・仮設道路などの粉じん対策に。" },
+  { img: "/img/norimen.jpg", t: "法面・のり面の保護", d: "表層を固化し、降雨時の表面侵食・崩落を抑制します。" },
   { img: "/img/uretsu1.jpg", t: "雨裂（ガリ）侵食の防止", d: "裸地・盛土の表面を安定化し、雨裂の発生を抑えます。" },
-  { img: "/img/sekou_watarase.jpg", t: "素掘り側溝の補強", d: "側溝表面を固めて崩れにくくし、維持管理を軽減します。" },
+  { img: "/img/sokko.jpg", t: "素掘り側溝の補強", d: "側溝表面を固めて崩れにくくし、維持管理を軽減します。" },
 ];
 
 const WORKS = [
@@ -18,22 +25,64 @@ const WORKS = [
 export default function Home() {
   return (
     <>
-      {/* ===== Hero ===== */}
+      {/* ===== Hero（複数枚フェード＋ズーム）===== */}
       <section className="hero">
-        <div className="hero__media" />
-        <div className="hero__note">粉じん・浸食防止剤 ストーンウォール｜株式会社吉浦</div>
-        <div className="hero__brand">
-          <div className="en">
-            Stone<b>Wall</b>
-          </div>
-          <div className="sub">粉じん・浸食防止剤</div>
+        <div className="hero__slides">
+          {HERO_SLIDES.map((src, i) => (
+            <div
+              key={src}
+              className="hero__slide"
+              style={{
+                backgroundImage: `url(${src})`,
+                animationDelay: `${i * 7}s`,
+              }}
+            />
+          ))}
         </div>
-        <div className="hero__tag">
-          <div className="l1">まくだけで、地表面を守る。</div>
-          <div className="l2">NETIS登録技術｜KK-200056-A</div>
+        <div className="hero__scrim" />
+        <div className="hero__lead">
+          <p className="eb">NETIS登録製品</p>
+          <h1>
+            ストーンウォールで
+            <br />
+            粉じん対策、法面保護を実現。
+          </h1>
         </div>
         <div className="hero__scroll">Scroll</div>
       </section>
+
+      {/* ===== クイックリンク ===== */}
+      <div className="quicklinks">
+        <a
+          className="qlink"
+          href="https://www.netis.mlit.go.jp/netis/pubsearch/details?regNo=KK-200056"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>
+            <b>NETIS 登録製品</b>
+            <br />
+            <span>KK-200056-A（外部リンク）</span>
+          </span>
+          <span className="arw">›</span>
+        </a>
+        <Link className="qlink" href="/safety">
+          <span>
+            <b>「安全性試験」を実施</b>
+            <br />
+            <span>詳しく見る</span>
+          </span>
+          <span className="arw">›</span>
+        </Link>
+        <Link className="qlink" href="/safety">
+          <span>
+            <b>福岡大学 共同研究</b>
+            <br />
+            <span>詳しく見る</span>
+          </span>
+          <span className="arw">›</span>
+        </Link>
+      </div>
 
       {/* ===== ① 主要（製品） ===== */}
       <section className="section">
