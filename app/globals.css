@@ -19,8 +19,8 @@ body {
   padding: 0;
 }
 body {
-  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo",
-    "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font-noto), "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    "Meiryo", "Segoe UI", system-ui, sans-serif;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.95;
@@ -720,6 +720,182 @@ h3 {
   border-radius: 10px;
 }
 
+/* ---------- Scroll reveal ---------- */
+.sec-head,
+.tiles,
+.tiles--3,
+.grid,
+.stats,
+.metrics,
+.chart,
+.cta .container {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.85s cubic-bezier(0.2, 0.65, 0.2, 1),
+    transform 0.85s cubic-bezier(0.2, 0.65, 0.2, 1);
+}
+.reveal-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ---------- Micro-interactions / polish ---------- */
+.btn {
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.tile .media {
+  transition: transform 0.75s cubic-bezier(0.2, 0.65, 0.2, 1);
+}
+.tile .media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, rgba(18, 16, 14, 0.22));
+  opacity: 0;
+  transition: opacity 0.45s;
+}
+.tile:hover .media::after {
+  opacity: 1;
+}
+
+/* ---------- Metrics（大きな数字）---------- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 8px;
+}
+.metric {
+  background: var(--paper);
+  padding: 42px 18px;
+  text-align: center;
+}
+.metric .v {
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.metric .v .u {
+  font-size: 0.42em;
+  color: var(--accent);
+  margin-left: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.metric .l {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Chart（効果イメージ）---------- */
+.chart {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 34px 34px 28px;
+  margin-top: 40px;
+}
+.chart h3 {
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+.chart .sub {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin: 6px 0 0;
+}
+.bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(30px, 8vw, 90px);
+  height: 220px;
+  margin-top: 26px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  width: 120px;
+  max-width: 34%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.bar .col {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  transition: height 1s cubic-bezier(0.2, 0.65, 0.2, 1);
+}
+.bar--before .col {
+  height: 90%;
+  background: linear-gradient(180deg, #cbc6ba, #b6b0a2);
+}
+.bar--after .col {
+  height: 22%;
+  background: linear-gradient(180deg, var(--accent), var(--accent-d));
+}
+.reveal-in .bar--before .col {
+  height: 90%;
+}
+.bar .cap {
+  margin-top: 14px;
+  font-size: 0.88rem;
+  color: var(--sub);
+  letter-spacing: 0.04em;
+}
+.chart .foot {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+/* refined footer */
+.site-footer {
+  border-top: 3px solid var(--accent);
+}
+.foot-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.foot-brand strong {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.foot-brand p {
+  margin: 8px 0 0;
+  line-height: 1.9;
+}
+.foot-brand .addr {
+  color: #928d83;
+  font-size: 0.82rem;
+}
+.foot-nav {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 40px;
+  align-content: start;
+}
+.foot-nav a {
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .tiles,
@@ -731,6 +907,12 @@ h3 {
   .stats,
   .quicklinks {
     grid-template-columns: 1fr;
+  }
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .foot-top {
+    gap: 26px;
   }
   .quicklinks {
     margin-top: -24px;

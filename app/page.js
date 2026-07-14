@@ -91,25 +91,66 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="stats">
-            <div className="stat">
-              <b>NETIS</b>
-              <span>登録技術 KK-200056-A</span>
+        </div>
+      </section>
+
+      {/* ===== 数値・効果 ===== */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="sec-head">
+            <span className="en">By the numbers</span>
+            <h2>数値で見る、ストーンウォール</h2>
+          </div>
+          <div className="metrics">
+            <div className="metric">
+              <div className="v">1997</div>
+              <div className="l">設立（平成9年）</div>
             </div>
-            <div className="stat">
-              <b>2019〜</b>
-              <span>福岡大学工学部と共同研究</span>
+            <div className="metric">
+              <div className="v">
+                2019<span className="u">〜</span>
+              </div>
+              <div className="l">福岡大学工学部と共同研究</div>
             </div>
-            <div className="stat">
-              <b>公共工事</b>
-              <span>国交省発注工事で採用実績</span>
+            <div className="metric">
+              <div className="v">
+                3<span className="u">規格</span>
+              </div>
+              <div className="l">20L / 300L / 1000L</div>
             </div>
+            <div className="metric">
+              <div className="v" style={{ fontSize: "clamp(1.4rem,3vw,2rem)" }}>
+                NETIS
+              </div>
+              <div className="l">登録技術 KK-200056-A</div>
+            </div>
+          </div>
+
+          <div className="chart">
+            <h3>粉じん飛散の抑制（イメージ）</h3>
+            <p className="sub">
+              散布により地表面を固化・安定化し、粉じんの飛散を大きく抑えます。
+            </p>
+            <div className="bars">
+              <div className="bar bar--before">
+                <div className="col" />
+                <div className="cap">散布前</div>
+              </div>
+              <div className="bar bar--after">
+                <div className="col" />
+                <div className="cap">散布後</div>
+              </div>
+            </div>
+            <p className="foot">
+              ※ 本グラフは効果のイメージです。実測値は福岡大学工学部との共同研究
+              （粉じん飛散抑制効果試験）の結果に基づき掲載予定です。
+            </p>
           </div>
         </div>
       </section>
 
       {/* ===== ② 活用シーン ===== */}
-      <section className="section section--alt">
+      <section className="section">
         <div className="container">
           <div className="sec-head">
             <span className="en">Use cases</span>
