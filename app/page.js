@@ -14,6 +14,16 @@ const SCENES = [
   { img: "/img/sokko.jpg", t: "素掘り側溝の補強", d: "側溝表面を固めて崩れにくくし、維持管理を軽減します。" },
 ];
 
+const COMPANY = [
+  ["商号", "株式会社吉浦"],
+  ["資本金", "10,000,000円"],
+  ["代表者", "代表取締役　井上　誓"],
+  ["設立", "平成9年2月20日"],
+  ["所在地", "福岡市西区姪の浜1丁目19番25号"],
+  ["連絡先", "092-832-3237"],
+  ["事業内容", "化学品の輸入・販売、大型重機のレンタル及び販売"],
+];
+
 const WORKS = [
   { img: "/img/sekou_akaiwa.jpg", place: "赤磐市多賀地区", t: "太陽光発電所新設工事" },
   { img: "/img/sekou_itohiki.jpg", place: "糸引公園", t: "防塵処理工事" },
@@ -151,6 +161,31 @@ export default function Home() {
           <div style={{ textAlign: "center", marginTop: 44 }}>
             <Link href="/work" className="btn">
               施工事例をすべて見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 会社概要 ===== */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="sec-head">
+            <span className="en">Company</span>
+            <h2>会社概要</h2>
+          </div>
+          <table className="spec" style={{ maxWidth: 820, margin: "0 auto" }}>
+            <tbody>
+              {COMPANY.map(([k, v]) => (
+                <tr key={k}>
+                  <th>{k}</th>
+                  <td>{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div style={{ textAlign: "center", marginTop: 36 }}>
+            <Link href="/company" className="btn">
+              会社概要を詳しく見る
             </Link>
           </div>
         </div>
