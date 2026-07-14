@@ -1,19 +1,22 @@
 export const metadata = {
   title: "安全性試験｜ストーンウォール｜株式会社吉浦",
   description:
-    "福岡大学工学部との共同研究による安全性・効果の確認。pH確認試験・粉じん飛散抑制効果試験・硬度確認試験。",
+    "福岡大学工学部との共同研究による効果・安全性の確認。pH確認試験・粉じん飛散抑制効果確認試験・硬度確認試験。",
 };
 
 const TESTS = [
   {
+    img: "/img/fuk1.jpg",
     t: "pH確認試験",
     d: "散布後の地表面・周辺環境への影響を確認するため、pHを測定・評価します。",
   },
   {
-    t: "粉じん飛散抑制効果試験",
+    img: "/img/fuk2.jpg",
+    t: "粉じん飛散抑制効果 確認試験",
     d: "散布前後の粉じん飛散量を比較し、抑制効果を定量的に確認します。",
   },
   {
+    img: "/img/fuk3.jpg",
     t: "硬度確認試験",
     d: "固化後の地表面の硬度を測定し、安定化の程度を評価します。",
   },
@@ -32,22 +35,40 @@ export default function Safety() {
 
       <section className="section">
         <div className="container">
-          <h2 className="h-section">福岡大学工学部との共同研究</h2>
-          <p className="lead">
-            ストーンウォールは、2019年より福岡大学工学部との共同研究を実施し、
-            効果と安全性を科学的に確認しています。現場の試料をご提供いただくことで、
-            あらかじめ効果を確認することも可能です。
+          <div className="grid grid-2" style={{ marginTop: 0, alignItems: "center", gap: 48 }}>
+            <div className="figure figure--43">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/img/fukudai.png" alt="福岡大学 北九州エコタウン実証研究エリア" />
+            </div>
+            <div>
+              <h2 className="h-section" style={{ fontSize: "1.6rem" }}>
+                福岡大学 共同研究
+              </h2>
+              <p style={{ color: "var(--sub)" }}>
+                2019年より福岡大学工学部とストーンウォールの効果、安全性について
+                共同研究を実施しております。現場の試料を提供いただき、予めストーン
+                ウォールの効果を確認することが可能です。試験結果を基に散布条件を
+                提案させていただくため、安心してご活用いただけます。
+              </p>
+            </div>
+          </div>
+
+          <p className="eyebrow" style={{ marginTop: 64, color: "var(--accent)" }}>
+            試験例
           </p>
-          <div className="grid grid-3">
+          <div className="tiles--3" style={{ display: "grid", marginTop: 20 }}>
             {TESTS.map((t) => (
-              <div className="card" key={t.t}>
-                <h3>{t.t}</h3>
-                <p>{t.d}</p>
+              <div className="tile" key={t.t}>
+                <div className="media figure--43">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={t.img} alt={t.t} />
+                </div>
+                <div className="cap">
+                  <h3 style={{ fontSize: "1.02rem" }}>{t.t}</h3>
+                  <p style={{ margin: 0 }}>{t.d}</p>
+                </div>
               </div>
             ))}
-          </div>
-          <div className="note">
-            ※ 試験内容はサンプル表記です。公開可能な試験データ・数値に差し替えます。
           </div>
         </div>
       </section>

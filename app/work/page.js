@@ -1,30 +1,23 @@
 export const metadata = {
   title: "施工事例｜ストーンウォール｜株式会社吉浦",
   description:
-    "ストーンウォールの施工事例。太陽光発電所の造成地、空港工事など公共・大規模現場での採用実績。",
+    "ストーンウォールの施工事例。太陽光発電所の造成地、空港滑走路端、調整池など公共・大規模現場での採用実績。",
 };
 
 const WORKS = [
-  {
-    t: "太陽光発電所 造成地",
-    place: "岡山県赤磐市",
-    d: "広大な造成地の粉じん飛散・表面侵食対策として散布。※サンプル",
-  },
-  {
-    t: "空港 滑走路端部 工事",
-    place: "長崎空港",
-    d: "滑走路端部の工事における粉じん・浸食対策として採用。※サンプル",
-  },
-  {
-    t: "法面保護 工事",
-    place: "九州地方",
-    d: "切土法面の表層固化による一次保護として活用。※サンプル",
-  },
-  {
-    t: "仮設道路の粉じん対策",
-    place: "福岡県内",
-    d: "工事用仮設道路の走行に伴う粉じん飛散を抑制。※サンプル",
-  },
+  { img: "/img/sekou_akaiwa.jpg", place: "赤磐市多賀地区", t: "太陽光発電所新設工事" },
+  { img: "/img/sekou_itohiki.jpg", place: "糸引公園", t: "防塵処理工事" },
+  { img: "/img/sekou_taiyoukou.jpg", place: "太陽光発電所", t: "新設工事" },
+  { img: "/img/sekou_watarase.jpg", place: "R4年 渡良瀬第2調整池", t: "石川排水樋管新設工事" },
+  { img: "/img/sekou_nagasaki.jpg", place: "R5年度 長崎空港滑走路端", t: "安全区域用地造成工事" },
+];
+
+const MORE = [
+  "夢洲2区飛散防止対策工事",
+  "鹿児島220号白水地区（第4工区）外改良工事",
+  "京都府八幡市新名神高速道路工事",
+  "桜島〜酉島幹線下水管渠築造工事",
+  "石垣島(3)火薬庫新設土木その他工事（その1）",
 ];
 
 export default function Work() {
@@ -40,25 +33,32 @@ export default function Work() {
 
       <section className="section">
         <div className="container">
-          <p className="lead">
+          <p className="lead" style={{ marginBottom: 8 }}>
             国土交通省発注工事をはじめ、公共・大規模現場での採用実績があります。
-            代表的な施工事例をご紹介します。
           </p>
-          <div className="grid grid-2">
+          <div className="tiles--3" style={{ display: "grid", marginTop: 40 }}>
             {WORKS.map((w) => (
-              <div className="card" key={w.t}>
-                <div className="ph-img">施工写真（差し替え）</div>
-                <h3 style={{ marginTop: 16 }}>{w.t}</h3>
-                <p style={{ color: "var(--amber-d)", fontWeight: 700, margin: "0 0 6px" }}>
-                  {w.place}
-                </p>
-                <p>{w.d}</p>
+              <div className="tile" key={w.place}>
+                <div className="media figure--43">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={w.img} alt={`${w.place} ${w.t}`} />
+                </div>
+                <div className="cap">
+                  <h3 style={{ fontSize: "1rem" }}>{w.place}</h3>
+                  <p style={{ margin: 0 }}>{w.t}</p>
+                </div>
               </div>
             ))}
           </div>
-          <div className="note">
-            ※ 事例内容・写真はサンプルです。掲載可否を確認のうえ、実案件に差し替えます。
-          </div>
+
+          <h2 className="h-section" style={{ fontSize: "1.3rem", marginTop: 64 }}>
+            その他の施工実績
+          </h2>
+          <ul style={{ color: "var(--sub)", lineHeight: 2.2, paddingLeft: "1.2em", marginTop: 12 }}>
+            {MORE.map((m) => (
+              <li key={m}>{m}</li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

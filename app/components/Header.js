@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const NAV = [
-  { href: "/business", label: "事業内容" },
   { href: "/sw", label: "製品情報" },
   { href: "/usagescene", label: "活用シーン" },
   { href: "/work", label: "施工事例" },
@@ -13,13 +13,26 @@ const NAV = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = !isHome || scrolled || open;
+
   return (
-    <header className="site-header">
+    <header className={`site-header${solid ? " solid" : ""}`}>
       <div className="container">
-        <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <strong>株式会社吉浦</strong>
-          <span>粉じん・浸食防止剤 ストーンウォール</span>
+        <Link href="/" className="brand-logo" onClick={() => setOpen(false)}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/img/logo.png" alt="株式会社吉浦" />
         </Link>
         <button
           className="nav-toggle"

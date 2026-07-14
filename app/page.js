@@ -1,80 +1,67 @@
 import Link from "next/link";
 
+const SCENES = [
+  { img: "/img/sekou_itohiki.jpg", t: "粉じん飛散の抑制", d: "造成地・ストックヤード・仮設道路などの粉じん対策に。" },
+  { img: "/img/sekou_nagasaki.jpg", t: "法面・のり面の保護", d: "表層を固化し、降雨時の表面侵食・崩落を抑制します。" },
+  { img: "/img/uretsu1.jpg", t: "雨裂（ガリ）侵食の防止", d: "裸地・盛土の表面を安定化し、雨裂の発生を抑えます。" },
+  { img: "/img/sekou_watarase.jpg", t: "素掘り側溝の補強", d: "側溝表面を固めて崩れにくくし、維持管理を軽減します。" },
+];
+
+const WORKS = [
+  { img: "/img/sekou_akaiwa.jpg", place: "赤磐市多賀地区", t: "太陽光発電所新設工事" },
+  { img: "/img/sekou_itohiki.jpg", place: "糸引公園", t: "防塵処理工事" },
+  { img: "/img/sekou_taiyoukou.jpg", place: "太陽光発電所", t: "新設工事" },
+  { img: "/img/sekou_watarase.jpg", place: "R4年 渡良瀬第2調整池", t: "石川排水樋管新設工事" },
+  { img: "/img/sekou_nagasaki.jpg", place: "R5年度 長崎空港滑走路端", t: "安全区域用地造成工事" },
+];
+
 export default function Home() {
   return (
     <>
-      {/* ===== Hero（大きく・動画のような動き）===== */}
-      {/* 実写動画を使う場合：public/hero.mp4 を置き、下の <video> のコメントを外す */}
+      {/* ===== Hero ===== */}
       <section className="hero">
-        {/*
-        <video className="hero__video" autoPlay muted loop playsInline poster="/hero-poster.jpg">
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
-        */}
-        <div className="hero__bg" />
-        <div className="hero__overlay" />
-        <div className="container">
-          <span className="badge">株式会社吉浦｜吉浦HDグループ</span>
-          <h1>
-            現場を、支える。
-            <br />
-            重機と化学品の力で。
-          </h1>
-          <p>
-            大型重機のレンタル・販売から、粉じん・浸食防止剤「ストーンウォール」を
-            はじめとする化学品の輸入・販売まで。土木・建設の現場を、確かな技術と
-            製品で支えます。
-          </p>
-          <div className="hero-actions">
-            <Link href="/business" className="btn btn--primary">
-              事業内容を見る
-            </Link>
-            <Link href="/sw" className="btn btn--ghost">
-              製品「ストーンウォール」
-            </Link>
+        <div className="hero__media" />
+        <div className="hero__note">粉じん・浸食防止剤 ストーンウォール｜株式会社吉浦</div>
+        <div className="hero__brand">
+          <div className="en">
+            Stone<b>Wall</b>
           </div>
+          <div className="sub">粉じん・浸食防止剤</div>
         </div>
-        <div className="hero__scroll">SCROLL</div>
+        <div className="hero__tag">
+          <div className="l1">まくだけで、地表面を守る。</div>
+          <div className="l2">NETIS登録技術｜KK-200056-A</div>
+        </div>
+        <div className="hero__scroll">Scroll</div>
       </section>
 
-      {/* ===== 事業内容 ===== */}
+      {/* ===== ① 主要（製品） ===== */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Business</p>
-          <h2 className="h-section">事業内容</h2>
-          <p className="lead">
-            株式会社吉浦は、大型重機と化学品の2つの柱で、土木・建設の現場を支えています。
-          </p>
-          <div className="grid grid-2">
-            <div className="card biz-card">
-              <div className="biz-media">
-                <span className="kicker">01｜Machinery</span>
-              </div>
-              <div className="biz-body">
-                <h3>大型重機のレンタル及び販売</h3>
-                <p>
-                  現場のニーズに合わせた大型重機のレンタル・販売を行っています。
-                  グループの機動力で、必要な機材を必要なタイミングでご提供します。
-                </p>
-                <Link href="/business" className="more">
-                  詳しく見る →
-                </Link>
-              </div>
+          <div className="sec-head">
+            <span className="en">Product</span>
+            <h2>主要製品「ストーンウォール」</h2>
+          </div>
+          <div className="grid grid-2" style={{ marginTop: 0, alignItems: "center", gap: 48 }}>
+            <div className="figure figure--43">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/img/sekou_taiyoukou.jpg" alt="ストーンウォール施工例" />
             </div>
-            <div className="card biz-card">
-              <div className="biz-media">
-                <span className="kicker">02｜Chemicals</span>
-              </div>
-              <div className="biz-body">
-                <h3>化学品の輸入・販売</h3>
-                <p>
-                  粉じん・浸食防止剤「ストーンウォール」（NETIS登録）をはじめ、
-                  現場課題を解決する化学品を輸入・販売しています。
-                </p>
-                <Link href="/sw" className="more">
-                  ストーンウォールを見る →
-                </Link>
-              </div>
+            <div>
+              <p style={{ color: "var(--sub)" }}>
+                ストーンウォールは、水で希釈して散布するだけで地表面を固化・安定化させる
+                粉じん・浸食防止剤です。高分子ポリマーが土粒子を被覆・結合し、乾燥後は
+                耐水性・耐風性を長期間保持。散布車・噴霧器で簡単に施工でき、国土交通省
+                発注工事をはじめ多くの現場で活用されています。
+              </p>
+              <ul style={{ color: "var(--sub)", paddingLeft: "1.2em", margin: "18px 0" }}>
+                <li>粉じん飛散・雨裂侵食の抑制</li>
+                <li>法面保護／素掘り側溝の補強</li>
+                <li>NETIS登録技術（KK-200056-A）</li>
+              </ul>
+              <Link href="/sw" className="btn btn--primary">
+                製品情報を見る
+              </Link>
             </div>
           </div>
 
@@ -95,35 +82,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== 製品：ストーンウォール ===== */}
+      {/* ===== ② 活用シーン ===== */}
       <section className="section section--alt">
         <div className="container">
-          <p className="eyebrow">Product</p>
-          <h2 className="h-section">まくだけで、地表面を守る「ストーンウォール」</h2>
-          <p className="lead">
-            水で希釈して散布するだけ。地表面を固化・安定化し、粉じんの飛散や雨裂による
-            浸食を長期にわたって抑制する、当社の主力製品です。
-          </p>
-          <div className="grid grid-3">
-            <div className="card">
-              <div className="num">01</div>
-              <h3>散布するだけの簡単施工</h3>
-              <p>散布車や噴霧器でまくだけ。乾燥後は耐水性・耐風性を長期保持します。</p>
-            </div>
-            <div className="card">
-              <div className="num">02</div>
-              <h3>粉じん飛散・浸食を抑制</h3>
-              <p>高分子ポリマーが土粒子を結合し、地表面を安定化します。</p>
-            </div>
-            <div className="card">
-              <div className="num">03</div>
-              <h3>NETIS登録・試験データ</h3>
-              <p>国交省NETIS登録技術。大学との共同研究で効果を確認しています。</p>
-            </div>
+          <div className="sec-head">
+            <span className="en">Use cases</span>
+            <h2>活用シーン</h2>
           </div>
-          <div style={{ marginTop: 28 }}>
-            <Link href="/sw" className="btn btn--primary">
-              製品情報を詳しく見る
+          <div className="tiles">
+            {SCENES.map((s) => (
+              <div className="tile" key={s.t}>
+                <div className="media figure--43">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={s.img} alt={s.t} />
+                </div>
+                <div className="cap">
+                  <h3>{s.t}</h3>
+                  <p>{s.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 44 }}>
+            <Link href="/usagescene" className="btn">
+              活用シーンをすべて見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ③ 施工事例 ===== */}
+      <section className="section">
+        <div className="container">
+          <div className="sec-head">
+            <span className="en">Works</span>
+            <h2>施工事例</h2>
+          </div>
+          <div className="tiles--3" style={{ display: "grid" }}>
+            {WORKS.map((w) => (
+              <div className="tile" key={w.place}>
+                <div className="media figure--43">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={w.img} alt={`${w.place} ${w.t}`} />
+                </div>
+                <div className="cap">
+                  <h3 style={{ fontSize: "1rem" }}>{w.place}</h3>
+                  <p style={{ margin: 0 }}>{w.t}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 44 }}>
+            <Link href="/work" className="btn">
+              施工事例をすべて見る
             </Link>
           </div>
         </div>
@@ -132,13 +143,13 @@ export default function Home() {
       {/* ===== CTA ===== */}
       <section className="cta">
         <div className="container">
-          <h2>重機・化学品のご相談、お見積りはお気軽に</h2>
-          <p style={{ color: "#dbe6f2", maxWidth: 640, margin: "0 auto 26px" }}>
-            現場の課題に合わせて、最適な重機・製品をご提案します。カタログのご請求も
-            こちらから。
+          <h2>効果の事前確認・お見積りはお気軽に</h2>
+          <p style={{ maxWidth: 640, margin: "0 auto 28px" }}>
+            現場の試料をご提供いただければ、あらかじめ効果を確認することも可能です。
+            カタログのご請求もこちらから。
           </p>
           <Link href="/contact" className="btn btn--primary">
-            お問い合わせはこちら
+            お問い合わせ
           </Link>
         </div>
       </section>
